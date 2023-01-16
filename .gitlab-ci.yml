@@ -23,7 +23,7 @@ hello world:
 
 build_skim:
   extends: .build_template
-  image: rootproject/root-conda:6.18.04
+  image: rootproject/root:6.22.06-conda
 
 build_skim_latest:
   extends: .build_template
@@ -34,7 +34,7 @@ skim_ggH:
   stage: run
   dependencies:
     - build_skim
-  image: rootproject/root-conda:6.18.04
+  image: rootproject/root:6.22.06-conda
   before_script:
     - printf $SERVICE_PASS | kinit $CERN_USER@CERN.CH
   script:
