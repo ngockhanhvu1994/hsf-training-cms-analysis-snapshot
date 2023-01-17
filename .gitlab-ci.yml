@@ -21,6 +21,15 @@ hello world:
       - skim
     expire_in: 1 day
 
+build_image:
+  stage: build
+  variables:
+    TO: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
+  tags:
+    - docker-image-build
+  script:
+    - ignore
+
 build_skim:
   extends: .build_template
   image: rootproject/root:6.22.06-conda
